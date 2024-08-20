@@ -7,7 +7,7 @@ import { manager } from './src/index';
           // This job will run every second
           console.log(new Date().toLocaleTimeString());
           await manager.jobdaily.dailyExchangeRate();
-          console.log("finish")
+          console.log("finish") 
         });
   } catch (error) {
     console.log("Error scheduling cron job interfaceStore :", error);

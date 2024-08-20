@@ -8,5 +8,5 @@ export default {
   USERNAME: process.env.DB_USERNAME,
   PASSWORD: process.env.DB_PASSWORD,
   DATABASE: process.env.DB_DATABASE,
- 
+  URLEXCHANGERATE: process.env.URL_EXCHANGE_RATE
 };

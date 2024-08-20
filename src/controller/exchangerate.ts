@@ -2,6 +2,7 @@
  import sequelize from "../config/mysql.config";
  import * as Sequelize from "sequelize";
  import { country_exchange_rate } from "../models/country_exchangerate";
+ import env from "../config/env.config";
 
  export class JobExchangeRate {
     async dailyExchangeRate() {
@@ -9,7 +10,7 @@
             let config = {
                 method: "get",
                 maxBodyLength: Infinity,
-                url: "https://www.bot.or.th/content/bot/en/statistics/exchange-rate/jcr:content/root/container/statisticstable2.results.level3cache.json",
+                url: env.URLEXCHANGERATE,
                 headers: {},
               };
             const response = await axios.request(config);
@@ -24,7 +25,6 @@
         try{
             console.log("dataCollect")
             for (let rate of data.responseContent) {
-    
                 // Creating a record within the transaction
                 const created = await country_exchange_rate.create({
                     period: rate['period'],
